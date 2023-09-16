@@ -239,7 +239,7 @@ drwxr-xr-x 2 root root 4096 Sep 16 00:22 lib
 -rw------- 1 root root 2970 Sep 16 00:26 trust.p12
 # podman build -t simplesession .
 
-export the default image registry.
+Expose the default image registry.
 % oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
 config.imageregistry.operator.openshift.io/cluster patched
 % oc get route -n openshift-image-registry
@@ -371,7 +371,6 @@ As you see below, the session data was maintained even after the pod restart.
 % curl -b cookie.txt http://simplesession-e30532.apps.*.*.*.*.com/SimpleSessionWeb/SimpleServlet
 % curl -b cookie.txt http://simplesession-e30532.apps.*.*.*.*.com/SimpleSessionWeb/SimpleServlet
 % oc exec -it simplesession-865dc67844-wnw4d  -- cat /logs/messages.log | grep SystemO                      
-[9/16/23, 7:51:55:453 UTC] 00000071 SystemOut                                                    O first request. count: 0
 [9/16/23, 7:52:04:806 UTC] 0000004a SystemOut                                                    O first request. count: 0
 [9/16/23, 7:52:10:811 UTC] 00000048 SystemOut                                                    O t7hONC-IDgXbw0umbvmzXpG: count: 1
 [9/16/23, 7:52:21:111 UTC] 0000003a SystemOut                                                    O t7hONC-IDgXbw0umbvmzXpG: count: 2
@@ -396,5 +395,5 @@ The cache is created at the DG side automatically during the startup of liberty 
 <img width="1185" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/e9dd2417-ea67-484a-8709-1e2d0f4a8f03">
 
 
-Note: You may wonder if the remote liberty outside of OCP can interact with the DG on OCP. The remote liberty can connect to the DG through the exposed route like the standalone java, but once the DG library at the liberty side connects to the DG server, it retrieves the DG server topology information. With that information, liberty tries to connect to the infinispan cluster member. But the network path to the each cluster members is not exposed, the remote liberty can't establish the connection.   
+Note: You may wonder if the remote liberty outside of OCP can interact with the DG on OCP. The remote liberty can connect to the DG through the exposed route like the standalone java, but once the DG library at the liberty side connects to the DG server, it retrieves the DG server topology information. With that information, liberty tries to connect to the infinispan cluster member directly over port 11222. But in my environment above, the network path to the each cluster members is not exposed, the remote liberty can't establish the connection directly.   
 
