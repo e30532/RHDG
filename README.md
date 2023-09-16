@@ -392,6 +392,9 @@ simplesession-865dc67844-ghgjp                       1/1     Running   0        
 [9/16/23, 7:53:13:370 UTC] 00000066 SystemOut                                                    O t7hONC-IDgXbw0umbvmzXpG: count: 3
 % 
 ```
+The cache is created at the DG side automatically during the startup of liberty if it doesn't exist in advance.   
+<img width="1185" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/e9dd2417-ea67-484a-8709-1e2d0f4a8f03">
+
 
 Note: You may wonder if the remote liberty outside of OCP can interact with the DG on OCP. The remote liberty can connect to the DG through the exposed route like the standalone java, but once the DG library at the liberty side connects to the DG server, it retrieves the DG server topology information. With that information, liberty tries to connect to the infinispan cluster member. But the network path to the each cluster members is not exposed, the remote liberty can't establish the connection.   
 
