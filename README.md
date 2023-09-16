@@ -5,7 +5,7 @@ This document describes a simple use case of Red Hat Data Grid with liberty.
 <img width="300" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/63ce715b-5d54-455a-a57f-691d97ce855c"><br>
 <img width="300" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/671b01c3-e033-4968-88b7-8f1842cf0b93"><br>
 <img width="300" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/380fa611-8807-4160-aa32-b57850009012"><br>  
-<img width="638" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/5b59ca67-e3aa-4c8d-b625-9885fd8d6e0b"><br>
+<img width="300" alt="image" src="https://github.com/e30532/RHDG/assets/22098113/5b59ca67-e3aa-4c8d-b625-9885fd8d6e0b"><br>
 3. login to the NFS server which can be accessed from OCP nodes. (It's an infrastracture node in my env.)   
    ```
    ***@***-MacBook-Pro ~ % ping api.*.*.*.*.com
